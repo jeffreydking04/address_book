@@ -14,6 +14,7 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "6-Testing"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -38,6 +39,10 @@ class MenuController
       when 5
         puts "Good-bye!"
         exit(0)
+      when 6
+        system "clear"
+        test_new_features
+        main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input"
@@ -174,5 +179,12 @@ class MenuController
         puts entry.to_s
         search_submenu(entry)
     end
+  end
+
+  def test_new_features
+    puts "In test mode:"
+    Entry.find_in_batches(start: 1, batch_size: 2)  { |bat| bat.each { |rec| puts rec.name }; puts "break" }
+    gets.chomp
+    system "clear"
   end
 end

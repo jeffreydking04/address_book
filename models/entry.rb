@@ -5,3 +5,7 @@ class Entry < KingRecord::Base
     "Name: #{name}\nPhone Number: #{phone_number}\nEmail: #{email}"
   end
 end
+
+class Comment < KingRecord::Base
+
+end

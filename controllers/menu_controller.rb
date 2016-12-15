@@ -205,7 +205,6 @@ class MenuController
   end
 
   def testing
-    Entry.where(name: "Foo").destroy_all
-    gets.chomp
+    Entry.destroy_all("name = ? or name = ?", "Foo Two", "Foo Three")
   end
 end
